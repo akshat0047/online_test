@@ -1,0 +1,37 @@
+version: '3.7'
+services:
+  yaksh-django:
+    image: akshat0047/yaksh-django:v4
+    depends_on:
+      - yaksh-db
+      - yaksh-codeserver
+    ports:
+      - 8432:80
+    env_file:
+     - docker.env
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  yaksh-codeserver:
+    image: akshat0047/yaksh-codeserver:v4
+    env_file:
+     - docker.env
+    restart: on-failure
+
+  yaksh-db:
+    image: mariadb:10.2
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: yaksh
+    restart: on-failure
+    volumes:
+     - mariadb-data:/var/lib/mysql
+
+volumes:
+  mariadb-data:

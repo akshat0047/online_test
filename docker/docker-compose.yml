@@ -5,9 +5,8 @@ services:
       context: ..
       dockerfile: docker/Dockerfile_django
     image: yaksh.django
-    container_name: yaksh_django
     env_file:
-    - docker.env     
+    - docker.env
     depends_on:
       - yaksh-db
       - yaksh-codeserver
@@ -23,20 +22,19 @@ services:
       context: ..
       dockerfile: docker/Dockerfile_codeserver
     image: yaksh.codeserver
-    container_name: yaksh_codeserver
     env_file:
     - docker.env
-    restart: always 
+    restart: always
 
   yaksh-db:
     image: mariadb:10.2
     container_name: yaksh_db
     volumes:
-      - mysql:/var/lib/mysql
+    - mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: yaksh
-    restart: always 
+    restart: always
 
 volumes:
     mysql:

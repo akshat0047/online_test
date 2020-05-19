@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY', default='dUmMy_s3cR3t_k3y')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default='TRUE')
 
-ALLOWED_HOSTS = config('ALLOWED_URLS', default='localhost')
+ALLOWED_HOSTS = ['*']
 
 URL_ROOT = ''
 
