@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   yaksh-django:
-    image: akshat0047/yaksh-django:v4
+    image: akshat0047/yaksh-django:v5
     depends_on:
       - yaksh-db
       - yaksh-codeserver

@@ -4,7 +4,7 @@ MAINTAINER FOSSEE <pythonsupport@fossee.in>
 
 RUN dnf update -y && yum install epel-release python3-devel git python3-pip vim mariadb-devel sudo -y
 
-RUN yum install mod_wsgi httpd gcc make -y 
+RUN yum install python3-mod_wsgi httpd gcc make -y 
 
 RUN mkdir -p /Sites/online_test
 
